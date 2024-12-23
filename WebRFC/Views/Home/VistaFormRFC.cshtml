@@ -1,0 +1,50 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VistaFormRFC</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+
+</head>
+<body>
+    <div class="container ">
+        <h3>Ingresa los siguientes datos</h3>
+        <div class="row">
+            <div class="col-10">
+                <form action="/Home/GenerarRFC" method="post">
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Nombre(s): </label>
+                        <input type="text" name="Nombre" placeholder="Escribe tu(s) nombre(s)..." class="form-control col-2" required/>
+                        <br />
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Apellido paterno: </label>
+                        <input type="text" name="ApellidoPat" placeholder="Escribe tu primer apellido..." class="form-control col-2" value="" />
+                        <br />
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Apellido Materno: </label>
+                        <input type="text" name="ApellidoMat" placeholder="Escribe tu segundo apellido..." class="form-control col-2" value=""/>
+                        <br />
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Fecha de Nacimiento: </label>
+                        <input type="date" name="FechaNacimiento" placeholder="Día/Mes/año" class="form-control col-2" required/>
+                        
+                    </div>
+                    <div class="form-group">
+                        <br /><br />
+                        <input type="submit" value="Genera tu RFC" class="btn btn-dark" />
+                    </div>
+                </form>
+            </div>
+        </div>  
+    </div>
+</body>
+</html>

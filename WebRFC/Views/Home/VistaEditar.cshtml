@@ -1,0 +1,41 @@
+﻿@using Entidades
+
+@model E_RFC
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VistaEditar</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container ">
+        <h3>Ingresa los siguientes datos</h3>
+        <form action="/Home/GenerarRFC" method="post">
+            <label class="col-form-label-lg">Nombre(s): </label>
+            <input type="text" name="Nombre" placeholder="Escribe tu(s) nombre(s)..." value="@Model.Nombre" class="form-control-sm" required/>
+            <br />
+
+            <label class="col-form-label-lg">Apellido paterno: </label>
+            <input type="text" name="ApellidoPat" placeholder="Escribe tu primer apellido..." value="@Model.ApellidoPat" class="form-control-sm" required/>
+            <br />
+
+            <label class="col-form-label-lg">Apellido Materno: </label>
+            <input type="text" name="ApellidoMat" placeholder="Escribe tu segundo apellido..." value="@Model.ApellidoMat" class="form-control-sm" />
+            <br />
+
+            <label class="col-form-label-lg">Fecha de Nacimiento: </label>
+            <input type="date" name="FechaNacimiento" value="@Model.FechaNacimiento"  class="form-control-sm" required/>
+            <br /><br />
+
+            <input type="submit" value="Genera tu RFC" class="btn btn-dark" />
+        </form>
+    </div>
+</body>
+</html>

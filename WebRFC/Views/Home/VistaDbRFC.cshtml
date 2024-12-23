@@ -1,0 +1,68 @@
+﻿@using Entidades
+
+@model List<E_RFC>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VistaDbRFC</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container">
+
+        <form action="/Home/BuscarRFC" method="post">
+            <div class="row mt-lg-5">
+                <div class="col-10">
+                    <input type="text" name="textoBusqueda" class="form-control" placeholder="Ingresa-letras-numeros" />
+                </div>
+                <div class="col-2">
+                    <input type="submit" value="BUSCADOR" class="btn btn-dark" />
+                </div>
+            </div>
+        </form>
+        <div class="container">
+            <h3 class="display-1">Total de registros:@Model.Count </h3>
+        </div>
+        <table class="table table-dark table-striped">
+            <thead class="table-light">
+                <tr>
+
+                    <th>NOMBRE</th>
+                    <th>FECHA DE NACIMIENTO</th>
+                    <th>RFC</th>
+                    <th class="col-">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (E_RFC objRFC in Model)
+                {
+                    <tr>
+                        <td hidden>ID</td>
+                        <td>@objRFC.Nombre @objRFC.ApellidoPat @objRFC.ApellidoMat</td>
+                        <td>@objRFC.FechaNacimiento.ToString("dd-MMM-yyyy")</td>
+                        <td>@objRFC.RFC</td>
+                        <td>
+                            <a href="/Home/IrEditar?idRFC=@objRFC.IdRFC" class="btn btn-info">Editar</a>
+                            <a href="/Home/AvisoEliminar?idRFC=@objRFC.IdRFC" class="btn btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="btn-group" role="group">
+            <a href="/Home/IrFormRFC" class="btn btn-dark">Generar otro RFC</a>
+            <a href="/Home/Index" class="btn btn-dark">Inicio</a>
+            <a href="/Home/Index" class="btn btn-dark">Salir</a>
+
+        </div>
+    </div>
+</body>
+</html>

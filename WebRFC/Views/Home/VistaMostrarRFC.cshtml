@@ -1,0 +1,32 @@
+﻿@using Entidades
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VistaMostrarRFC</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+
+</head>
+<body>
+    <div>
+        @TempData["mensaje"]
+        <h4>Tu RFC es</h4>
+        <br />
+        <input type="text" class="form-control mb-3" value=@Model.RFC readonly />
+
+        <div class="btn-group" role="group">
+            <a href="/Home/IrFormRFC" class="btn btn-dark">Generar otro RFC</a>
+            <a href="/Home/MostrarBD" class="btn btn-dark">Ir a Base de Datos</a>
+            <a href="/Home/Index" class="btn btn-dark">Salir</a>
+
+        </div>
+    </div>
+</body>
+</html>

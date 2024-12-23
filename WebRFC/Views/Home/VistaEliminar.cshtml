@@ -1,0 +1,37 @@
+﻿@using Entidades
+
+@model E_RFC
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VistaEliminar</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="card-header">¿Estas seguro de eliminar el siguiente registro?</h1>
+        <div class="card-body">
+            <input type="hidden" name="IdPelicula" value="@Model.IdRFC" />
+
+            <label class="display-6" name="Nombre">Nombre: @Model.Nombre @Model.ApellidoPat @Model.ApellidoMat</label>
+            <br /><br />
+
+            <label class="display-6" name="FechaNacimiento">Fecha de Lanzamiento: @Model.FechaNacimiento.ToString("yyyy-MMM-dd")</label>
+            <br /><br />
+
+            <label class="display-6" name="RFC">Genero: @Model.RFC</label>
+            <br /><br />
+
+            <a href="/Home/Eliminar?idRFC=@Model.IdRFC" class="btn btn-outline-danger">Aceptar</a>
+            <a href="/Home/MostrarBD" class="btn btn-light"> Cancelar</a>
+        </div>
+    </div>
+</body>
+</html>
